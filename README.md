@@ -6,6 +6,44 @@ TypeScript、Deno、Prolog WASMを利用したMCPサーバーの実装です。P
 
 このMCPサーバーは、SWI-Prologを WebAssembly を通じて実行し、Prologの推論エンジンをClaude AIに提供します。家族関係のサンプル知識ベースがあらかじめ登録されています。
 
+## インストール
+
+### Clineへのインストール
+`cline_mcp_settings.json`に下記を追加する。
+```
+"prolog": {
+   "command": "PATH_TO_DENO",
+   "args": [
+      "run",
+      "-A",
+      "PATH_TO_THIS_PROJECT_DIR/mcp.ts"
+   ],
+   "env": {},
+   "disabled": false,
+   "autoApprove": [
+      "query",
+      "findRelation",
+      "assertz",
+      "resetProlog",
+      "loadProgram"
+   ],
+   "timeout": 30
+}
+```
+
+### Claude Desktopへのインストール
+エラーが出るが、下記を`claude_desktop_config.json`に追加するとClaude Desktopで動く。
+```
+"prolog": {
+   "command": "PATH_TO_DENO",
+   "args": [
+      "run",
+      "-A",
+      "PATH_TO_THIS_PROJECT_DIR/mcp.ts"
+   ]
+}
+```
+
 ## 機能
 
 このMCPサーバーは以下のツールとリソースを提供します：
