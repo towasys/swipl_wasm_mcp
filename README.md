@@ -1,0 +1,1 @@
+# swipl_wasm_mcp
